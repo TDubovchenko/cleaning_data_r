@@ -54,3 +54,5 @@ table1$subject<-as.factor(table1$subject);
 library(data.table);
 DT <- data.table(table1);
 summarizedData<-DT[, lapply(.SD, mean, na.rm=TRUE), by=list(subject,activitytype) ];
+dd <- data.table(summarizedData);
+write.table(dd, "tidy_data.txt", sep="\t");
